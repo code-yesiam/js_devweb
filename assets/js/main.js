@@ -9,10 +9,10 @@ function loadPokemonItens(offset, limit) {
 
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
             const newHtml = pokemons.map((pokemon) => `
-            <li id="${pokemon.name}" class="pokemon ${pokemon.type} info" onclick="openInfo()">
+            <li class="pokemon ${pokemon.type} info">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">
-                    <a href="#poke-modal" id="showDetail">${pokemon.name}</a>
+                    <a href="#poke-modal" onclick="openInfo()">${pokemon.name}</a>
                 </span>
                     <div class="detail">
                         <ol class="types">
@@ -21,21 +21,21 @@ function loadPokemonItens(offset, limit) {
                         <img src="${pokemon.photo}" alt="${pokemon.name}">
                     </div>
             </li>
-            `).join('')
-            /* <div id="poke-modal" class="modal">
+            <div id="poke-modal" class="modal">
                     <div class="poke-modal-content ${pokemon.type}">
-                        <span class="number">#${pokemon.number}</span>
                         <span class="name">
-                            <a href="#">${pokemon.name}</a>
+                            <a href="#" class="name-modal">${pokemon.name}</a>
                         </span>
-                        <div class="detail">
-                            <ol class="types">
-                                ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                        <span class="number-modal">#${pokemon.number}</span>
+                        <div class="detail-modal">
+                            <ol class="types-modal">
+                                ${pokemon.types.map((type) => `<li class="type-modal ${type}">${type}</li>`).join('')}
                             </ol>
-                        <img src="${pokemon.photo}" alt="${pokemon.name}">
+                        <img src="${pokemon.photo}" alt="${pokemon.name}" class="image-modal">
                     </div>
                 </div>
-            </div>*/
+            </div>
+            `).join('')
 
             pokemonOl.innerHTML += newHtml
         }
@@ -49,7 +49,7 @@ loadMoreButton.addEventListener('click', () => {
     loadPokemonItens(offset, limit)
 })
 
-function openInfo(pokemon) {
+/* function openInfo(pokemon) {
     const modalNumber = document.getElementById(`${}`);
 
     modalNumber.textContent = `#${pokemon.number}`;
@@ -61,4 +61,4 @@ function openInfo(pokemon) {
 
 pokeModal.addEventListener('click', () => {
     
-})
+}) */
