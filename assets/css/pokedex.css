@@ -147,6 +147,7 @@ a {
     justify-content: center;
     background: rgba(77, 77, 77, 0.7);
     transition: all 0.4s;
+    z-index: 2;
 }
 
 .modal:target {
@@ -162,6 +163,34 @@ a {
     padding: 1em 2em;
 }
 
+.poke-modal-content .types-modal {
+    list-style: none;
+    display: flex;
+
+}
+
+.poke-modal-content .number-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    font-size: xx-large;
+    opacity: 0.5;
+}
+
+.poke-modal-content .name-modal {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: xx-large;
+    text-transform: capitalize;
+}
+
+.poke-modal-content .image-modal {
+    padding-top: 1rem;
+    
+}
 
 @media screen and (min-width: 992px) {
     .content {
